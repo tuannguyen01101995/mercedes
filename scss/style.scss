@@ -1,0 +1,891 @@
+$color-black:#000;
+$color-white:#fff;
+$color-grey:#999;
+$color-dark-grey:#1D1D1D;
+$color-blue:#2198DC;
+$color-dark:#202020;
+$color-dark-light:#171717;
+$color-light-grey: #F3F3F3;
+$color-light-black:rgba(0,0,0,0.5);
+$color-dark-black:rgba(0,0,0,0.8);
+
+$pd-0: 5px;
+$pd-1: 10px;
+$pd-2: 20px;
+$pd-3: 30px;
+$pd-4per: 4%;
+$pd-7per: 7%;
+$pd-10per: 10%;
+
+$mg-1: 10px;
+$mg-2: 20px;
+$mg-3: 30px;
+$mg-4: 40px;
+$mg-5: 50px;
+$mg-6: 200px;
+
+$fs-1:15px;
+$fs-2:20px;
+$fs-3:30px;
+$fs-4:40px;
+
+$fw-bold:bold;
+$fw-normal:normal;
+
+//Mixin
+@mixin text($color,$fs)
+{
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw-normal;
+}
+@mixin button($bg,$color,$color-border,$fs,$pd,$bg-hover,$color-hover)
+{
+    background-color: $bg;
+    color: $color;
+    border:1.5px solid $color-border;
+    padding: $pd;
+    font-size: $fs;
+    
+    &:hover{
+        background-color: $bg-hover;
+        color: $color-hover;
+        border:1.5px solid $bg-hover;
+    }
+}
+@mixin header-line($width-line,$height-line,$color)
+{
+    width: $width-line;
+    height: $height-line;
+    background-color: $color;
+}
+
+body{
+    background-color: $color-black;
+}
+div{
+    box-sizing: border-box;
+}
+
+.padding-section{
+    padding: $pd-3 $pd-3;
+}
+.margin-section{
+    margin: $pd-3 $pd-3;
+}
+
+.clear{
+    clear: both;
+}
+
+/*Header*/
+.contact-info{
+    padding: $pd-1 $pd-4per 0 $pd-4per;
+    
+    a{
+        padding: 0 0 0 $pd-2;
+        @include text($color-grey,13px);
+        
+        i{
+            border: 1px solid $color-grey;
+            margin-right: 5px;
+            padding: 1px;
+            width: $fs-1;
+            text-align: center;
+        }
+        &:hover{
+            color: $color-blue;
+            border-color: $color-blue;
+            i{
+                border-color: $color-blue;
+            }
+        }
+    }
+    
+    
+}
+/*End header*/
+
+
+/*Navbar-top*/
+.navbar--config{
+    padding: 0;
+    position: relative;
+
+    .navbar-brand{
+        padding: 0 $pd-2 $pd-3 $pd-2;
+        margin: 0;
+        img{
+            width: 70px;
+        }
+        span{
+            padding-left: 60px;
+            padding-right: $pd-1 !important;
+            vertical-align: bottom;
+            @include text($color-white,$fs-2);
+        }
+
+
+        @media screen and (max-width:766px) {
+        padding: $pd-2 $pd-1 $pd-2 $pd-1;
+        margin: 0;    
+            img{
+                width: 42px;
+            }
+            span{
+                padding-left: 30px;
+                padding-right: $pd-1 !important;
+                vertical-align: middle;
+                @include text($color-white,$fs-1);
+            }
+        }
+    }
+
+    .btn-reponsive-custom-top{
+        
+        padding-right: $pd-3;
+        @include text($color-white,$fs-3);
+    }
+
+    #collapsibleNavId{
+        .nav-item{
+            padding: $pd-1 0;
+            .nav-link{
+                text-align: center;
+                padding: 0;
+                margin: $pd-1;
+                
+                @include text($color-grey,$fs-1);
+                i{
+                    font-size: $fs-2;
+                }
+                p{
+                    font-size: $fs-1;
+                }
+    
+                &:hover{
+                    color: $color-blue;
+                }
+            } 
+            
+        } 
+        .border-divide{
+           width: 1px;  
+           height: 35px;
+           background-color: $color-grey;
+           opacity: 0.5;     
+        } 
+
+        //reponsive
+        @media screen and (max-width:766px) {
+            background-color: $color-white;
+            position: absolute;
+            top:80px;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            .nav-item{
+               width: 100%;
+
+               .nav-link{
+                    text-align: left;
+                    margin: 0;
+                    padding: $pd-1 0;
+                    border-bottom: 0.5px solid $color-grey;
+                    i{
+                        padding: $pd-0 $pd-2;
+                    }
+                    p{
+                        padding: $pd-0 $pd-1;
+                        display: inline-block;
+                    } 
+                }
+            }
+        }
+    }
+}
+/*End Navbar-top*/
+
+
+/*Navbar-bottom*/
+.navbar--config--bottom{
+    background-color: $color-dark-grey;
+    position: relative;
+    padding: 0;
+
+
+    .btn-reponsive-custom{
+
+        padding: $pd-1+5 $pd-1;
+        @include text($color-grey,$fs-1);
+        i{
+            padding-left: $pd-0;
+            font-size: $fs-2;
+        }
+        @media screen and (max-width:766px) {
+            color: $color-white;
+            
+        }   
+    }
+        
+    
+    #nav-Bottom{
+        background-color: $color-dark-grey;
+        
+        .nav-link{
+            padding: $pd-3 $pd-2;
+            text-align: center;
+            @include text($color-grey,$fs-1);
+    
+            &:hover{
+                color: $color-blue;
+            }
+        }
+        @media screen and (max-width:766px) {
+            background-color: $color-white;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            z-index: 99;
+            li{
+               width: 100%;
+               .nav-link{
+                    margin: 0;
+                    padding: $pd-1+5 0;
+                    border-bottom: 0.5px solid $color-grey;
+                }
+            }
+        }
+    }
+    
+}
+/*End Nav-bottom*/
+
+
+//Carousel
+.carousel-slider{
+    position: relative;
+    
+    .carousel-search{
+        
+        margin-bottom: 2%;
+        background-color: rgba(255, 255, 255,0.6);
+        position: absolute;    
+        bottom: 0;
+        left: 5%;
+        right: 5%;
+        input{
+            background-color: rgba(255, 255, 255,0.6);
+            padding: $pd-1;
+        }
+        button{
+            width: 82px;
+            @include button($color-dark, $color-white, $color-dark,$fs-2, 0 $pd-1, $color-white, $color-black);
+        }
+        @media screen and (max-width:766px){
+            background-color: $color-white;
+            position: unset;
+            top: unset;
+            left: 0;
+            width: 100%;
+            margin-bottom: 0;
+            input{
+                background-color: #EDEDED;
+                padding: $pd-1;
+            }
+        } 
+    }
+
+    #myCarousel{
+
+        .carousel-caption{
+            width: 500px;
+            bottom: unset;
+            right: unset;
+            top: 20px;
+            left: 5%;
+            height: 80%;
+            text-align: left;
+            .line{
+                @include header-line(70px,3px,$color-white);
+            }
+            h1{
+                @include text($color-white,$fs-4 );
+                margin: $fs-3 0;
+            }
+            button{
+                width: 150px;
+                @include button($color-dark, $color-white, $color-dark,$fs-1, $pd-1 $pd-2 , $color-white, $color-black);
+                i{
+                    padding-right: $pd-1;
+                }
+            }
+            span{
+                vertical-align: bottom;
+            }
+            @media screen and (max-width:1279px){
+                button{
+                    display: none;
+                }
+                h1{
+                    @include text($color-white,$fs-3 );
+                }
+            }
+            ////////////////////////////////////////////
+            @media screen and (max-width:767px) {
+                display: block;
+                width: 100%;
+                height: 250px;
+                position: unset;
+                top: unset;
+                
+                align-items: stretch;
+                background-color: $color-light-grey;
+                padding: $pd-1 $pd-3 0 $pd-3;
+                .line{
+                    background-color: #000;
+                }
+                h1{
+                    margin: $fs-2 0;
+                    @include text($color-black,$fs-2);
+                }
+                button{
+                    @include button($color-dark, $color-white, $color-dark,$fs-1, $pd-0 $pd-0 , $color-white, $color-black);
+                    display: block;
+                }
+                span{
+                    margin-bottom: $fs-2;
+                    @include text($color-black,$pd-1+4);
+                    
+                }
+            }
+        }
+
+        .carousel-control-prev--config{
+                        
+            width: 5%;
+            i{
+                font-size: $fs-4*1.5;
+            }
+            @media screen and (max-width:766px) {
+                width: 7%!important;
+                height: 40% !important;
+                i{
+                    font-size: $fs-4;
+                    }
+                }
+            }
+            .carousel-control-next--config{
+                @extend .carousel-control-prev--config;
+            }
+                
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+//End Carousel
+
+
+
+//Welcome
+.welcome{
+    padding: $pd-3+10 $pd-10per/2;
+    background-color: $color-white;
+    .line{
+        @include header-line(60px,3px,$color-black);
+    }
+    h1{
+        @include text($color-black,$fs-3);
+        padding: $fs-3 0;
+        margin: 0;
+    }
+    span{
+        @include text($color-black,$fs-1*0.8);
+    }
+    ///////////////////////////////////////
+    @media screen and (max-width:767px){
+        h1{
+            @include text($color-black,$fs-2);
+            padding: $fs-2 0;
+        }
+    }
+}
+//End Welcome
+
+/*Slide Show*/
+.tabs-intro-vehicles{
+    ul{
+        margin: $mg-3 0;
+        border-color: transparent;  
+         
+        .nav-item{
+            border: none;
+            .nav-link{
+                @include button($color-dark-grey, $color-grey, $color-dark-grey,$fs-1*0.9, $pd-0 $pd-0, $color-dark-grey, $color-white );
+                border-radius: unset;
+
+                i{
+                    padding: 0 $pd-0;
+                }
+
+            }   
+            .active{
+                    @include button($color-dark-grey, $color-blue, $color-dark-grey,$fs-1*0.9, $pd-0 $pd-0, $color-dark-grey, $color-blue );
+                
+                }
+            
+        }
+        @media screen and (max-width:767px){
+            li{
+                width: 50%;
+            }
+        }
+
+    }
+
+    .btn-tab-intro{
+            margin: $mg-2 0;
+            @include button($color-dark-grey, $color-grey, $color-dark-grey,$fs-1, $pd-1 $pd-2, $color-dark-grey, $color-white );
+            i{
+                padding-right: $pd-0; 
+            }
+    }
+    .list-item{
+        background-color: black;
+        .item{
+            float: left;
+            border-width: 0 1px 2px 1px;
+            border-style: solid;
+            border-color: $color-black;
+            position: relative;
+            
+            .info--vehicles{
+                position: absolute;
+                bottom: 0;
+                background-color: rgba(0,0,0,0.5);
+                width: 100%;
+                height: 55px;
+                color: $color-white;
+                transition: height 0.5s,background 1s;
+                padding: $pd-0 $pd-3*1.2;
+
+                h4{
+                    @include text($color-white,$fs-2*0.9);
+                    margin: 0;
+                    padding: $pd-1 0;
+                    
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+
+                .info-label{
+                    position: absolute;
+                    bottom: 0;
+                    margin: 0;
+                    @include text($color-white,$fs-1*0.8);
+                    opacity: 1;
+                    
+                    span{
+                        padding-right: $pd-0;
+                        i{
+                            padding-right:$pd-0;
+                        }
+                    }
+                }
+                .info-detail{
+                    @include text($color-white,$fs-1*0.8);
+                    opacity: 0;
+                    transition: all 0.5s;
+                }
+
+                
+
+                @media screen and (max-width:767px){
+                    position: unset;
+                    display: block;
+                    height: auto;
+                    padding: $pd-3 $pd-3;
+                    h4{
+                        padding: 0 0 $pd-1 0;
+
+                        white-space:unset;
+
+                    }
+                    .info-label{
+                        position: unset;
+                        span{
+                            display: block;
+                        }
+                    }
+                    .info-detail{
+                        display: none;
+                    }
+                    
+                }
+            }
+            &:hover{
+                .info--vehicles{
+                    height: 120px;
+                    background-color: rgba(0,0,0,0.8);
+                    .info-label{
+                        opacity: 0;
+                        @media screen and (max-width:767px){
+                            opacity: 1;
+                        }
+                    }
+                    .info-detail{
+                        opacity: 1;
+                    }
+                    @media screen and (max-width:767px){
+                        height: auto;
+                    }
+                }   /* .all/wid/hei. .thờigian. .speed. .delay.*/
+            }
+        } 
+
+        .item1{
+            width: 50%;
+            img{
+                background-color: transparent;
+            }
+        }
+        .item2{
+            width: 25%;
+            img{
+                background-color: transparent;
+            }
+        }
+        
+        @media screen and (max-width:1579px){
+            .item{
+                float: left;
+            }
+            .item1{
+                width: 66.6666667%;
+            }
+            .item2{
+                width: 33.3333333%;
+            }
+    
+        }
+        @media screen and (max-width:1279px){
+            .item{
+                float: left;
+            }
+            .item1{
+                width: 50%;
+            }
+            .item2{
+                width: 50%;
+            }
+        }
+        @media screen and (max-width:767px){
+            .item{
+                float: left;
+            }
+            .item1{
+                width: 100%;
+            }
+            .item2{
+                width: 100%;
+            }
+        }
+    }
+}
+/*End Slide Show*/
+
+
+
+/*Intro para*/
+.intro-para{
+    @include text($color-light-grey, $fs-1*0.9);
+    word-wrap: normal;
+    span{
+        display: inline-block;
+        padding-right: $pd-1;
+        i{
+            padding-right: $pd-1;
+        }
+    }
+    
+}
+/*End Intro para*/
+
+
+
+/*Slider Showroom*/
+.slider-showroom{
+    .line{
+        @include header-line(60px,3px,$color-light-grey);
+    }
+    h1{
+        @include text($color-light-grey,$fs-3);
+        padding: $fs-3 0;
+        margin: 0;
+    }
+    .slick-items{
+    background-color: transparent;
+        p{
+            background-color: $color-black;
+            @include text($color-light-grey, $fs-1 );
+        }
+    }
+    
+
+}
+/*End Slider Showroom*/
+
+/*Navigation Bottom*/
+.navigation-bottom{
+    .line{
+        @include header-line(60px,3px,$color-light-grey);
+    }
+    h3{
+        @include text($color-light-grey,$fs-3);
+        padding: $fs-3 0;
+        margin: 0;
+        border-bottom: 1px solid $color-dark-grey;
+    }
+    ul{
+        padding: $fs-3 0;
+        list-style-type: none;
+        li{
+            
+            a{
+                @include text($color-grey,$fs-1*0.9);
+                text-decoration: none !important; 
+            }
+        }
+    }
+}
+/*End Navigation Bottom*/
+
+/*contact*/
+
+.contact{
+    .line{
+        @include header-line(60px,3px,$color-light-grey);
+    }
+    h1{
+        @include text($color-light-grey,$fs-3);
+        padding: $fs-3 0;
+        margin: 0;
+        border-bottom: 1px solid $color-dark-grey;
+    }
+    
+    p{
+        padding: $pd-2 0;
+        margin: 0;
+        @include text($color-grey,$fs-1*0.8);
+    }
+    .contact-left{
+        
+        form{
+        
+            input{
+                width: 70%;
+                background-color: $color-dark-grey;
+                color: $color-light-grey;
+            }
+            button{
+                width: 30%;
+                @include button($color-dark-light, $color-grey, $color-dark-light,$fs-1, $pd-1 $pd-1, $color-dark-light, $color-blue);
+                i{
+                    padding-right: $pd-1;
+                }
+            }
+        }
+    }
+    .contact-right{
+        
+        ul{
+            list-style: none;
+            flex-wrap: wrap;
+            li{
+                padding-right: $pd-3;
+                a{
+                    @include text($color-grey,$fs-3 );
+                }
+            }
+        }
+    }
+    hr{
+        border-color: $color-grey;
+        opacity: 0.5;
+    }
+}
+
+/*end contact*/
+
+/*Footer*/
+.footer{
+    padding-bottom: 80px;
+    .line{
+        width: 1px;
+        background-color:$color-grey;
+        margin: 0 $pd-0;
+    }
+    a{
+        @include text($color-grey,$fs-1*0.9 );
+    }
+    ul{
+        list-style: none;
+        flex-wrap: wrap;
+        li{
+            padding-right: $pd-3;
+            
+        }
+    }
+    .padding-footer{
+        padding-bottom: $pd-3;
+    }
+}
+/*End Footer*/
+
+/*Side NavBar*/
+.side-navbar{
+
+    position: fixed;
+
+    right:0;
+    transform: translateY(-50%);
+    bottom: 40%;
+
+    .nav-bar{
+        
+        position: relative;
+        height: 45px;
+        
+        .share-side-nav-title{
+            display: none;
+        }
+
+
+        .sidenav{
+            width: 50px;
+            position: absolute;
+            right: 0;
+            z-index: 150;
+            transition: width 0.5s linear ;
+            overflow: hidden;
+            @include button($color-dark-grey, $color-light-grey, $color-dark-grey,$fs-2, 0 0, $color-dark-grey, $color-dark-grey);
+            
+            a{
+                width: auto;
+                color: $color-light-grey;
+                text-decoration: none;
+                i{
+                    color: $color-light-grey;
+                    padding: $pd-1;
+                }
+                span{
+                    width: 200px;
+                    position: absolute;
+                    height: 40px;
+                    line-height: 40px;
+                    left: 60px;
+                }
+            }
+                
+            i{
+                color: $color-light-grey;
+                padding: $pd-1;
+            }
+            
+            &:hover{
+                width: 250px;
+                span{
+                }
+            } 
+        }
+        .share-side-nav{
+            position: unset;
+            span{
+                width: 200px;
+                    position: absolute;
+                    height: 40px;
+                    line-height: 40px;
+                    left: 60px;
+            }
+        }   
+    }
+    @media screen and (max-width:767px){
+
+        width: 100%;
+        
+        left: 0;
+        transform: unset;
+        bottom: 0;
+        display: flex;
+        text-align: center;
+
+        .nav-bar{
+            width: 25%;
+            
+            height: 72px;
+
+            .sidenav{
+                width: 100%;
+                @include button($color-dark-grey, $color-light-grey, $color-dark-grey,$fs-2, 0 0, $color-dark-grey, $color-dark-grey);
+                transition: unset;
+                position: unset;
+                border: 1px solid $color-light-black;
+                a{
+                    width: 100%;
+                    height: auto;
+                    span{
+                        width: auto;
+                        position: unset;
+                        display: block;
+                        font-size: 10px;
+                    }
+                    i{
+                        width: 100%;
+                        padding: 0 ;
+                    }
+                }
+                
+                &:hover{
+                    width: unset;
+                } 
+            }
+
+            .share-side-nav{
+
+            position: absolute;
+            bottom: 0;
+            z-index: 150;
+            transition: height 0.5s linear ;
+            height: 72px;
+            color: $color-light-grey;
+                p{
+                    margin: 0;
+                        width: auto;
+                        position: unset;
+                        display: block;
+                        font-size: 10px;
+                        line-height: 40px;
+                }
+                i{
+                    padding: 0;
+                
+                }
+                span{
+                    position: unset;
+                }
+                &:hover{
+                    height: 250px;
+                    width: 100%;
+                    p{
+                        color: white;
+                    }
+                } 
+            }
+        }
+        
+    }
+}
