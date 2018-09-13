@@ -3,7 +3,7 @@
 
 $(document).ready(function () {
     // Mobile swipe if more than 5 pixels moved
-    
+
     $("#myCarousel").swipe( {
         allowPageScroll:"vertical",
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {

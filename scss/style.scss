@@ -747,145 +747,121 @@ div{
 /*End Footer*/
 
 /*Side NavBar*/
-.side-navbar{
 
+#side-navbar{
     position: fixed;
-
-    right:0;
+    top: 50%;
     transform: translateY(-50%);
-    bottom: 40%;
-
+    right: 0;
+    
     .nav-bar{
-        
         position: relative;
+        right: 0;
         height: 45px;
-        
-        .share-side-nav-title{
-            display: none;
-        }
-
-
-        .sidenav{
-            width: 50px;
+        margin: 2px 0;
+        .nav-content{
+            background: $color-dark-grey;
             position: absolute;
-            right: 0;
-            z-index: 150;
-            transition: width 0.5s linear ;
-            overflow: hidden;
-            @include button($color-dark-grey, $color-light-grey, $color-dark-grey,$fs-2, 0 0, $color-dark-grey, $color-dark-grey);
-            
-            a{
-                width: auto;
-                color: $color-light-grey;
-                text-decoration: none;
-                i{
-                    color: $color-light-grey;
-                    padding: $pd-1;
-                }
-                span{
-                    width: 200px;
-                    position: absolute;
-                    height: 40px;
-                    line-height: 40px;
-                    left: 60px;
-                }
-            }
-                
+            right: -255px;
+            display: block !important;
+            width: 300px;
+            height: 100%;
+            line-height: 45px;
+            @include button($color-dark-grey, $color-light-grey, $color-black ,$fs-1, 0 0, $color-dark-grey, $color-light-grey);
+            text-decoration: none;
+            transition: width 0.5s linear;
+            border: none;
             i{
-                color: $color-light-grey;
-                padding: $pd-1;
+                padding: $pd-1*1.2;
+                &::before{
+                    font-size: $fs-2;
+                }
             }
-            
             &:hover{
-                width: 250px;
-                span{
-                }
-            } 
-        }
-        .share-side-nav{
-            position: unset;
-            span{
-                width: 200px;
-                    position: absolute;
-                    height: 40px;
-                    line-height: 40px;
-                    left: 60px;
-            }
-        }   
-    }
-    @media screen and (max-width:767px){
-
-        width: 100%;
-        
-        left: 0;
-        transform: unset;
-        bottom: 0;
-        display: flex;
-        text-align: center;
-
-        .nav-bar{
-            width: 25%;
-            
-            height: 72px;
-
-            .sidenav{
-                width: 100%;
-                @include button($color-dark-grey, $color-light-grey, $color-dark-grey,$fs-2, 0 0, $color-dark-grey, $color-dark-grey);
-                transition: unset;
-                position: unset;
-                border: 1px solid $color-light-black;
-                a{
-                    width: 100%;
-                    height: auto;
-                    span{
-                        width: auto;
-                        position: unset;
-                        display: block;
-                        font-size: 10px;
-                    }
-                    i{
-                        width: 100%;
-                        padding: 0 ;
-                    }
-                }
-                
-                &:hover{
-                    width: unset;
-                } 
-            }
+                width: 500px;
+                border: none;
+            }  
 
             .share-side-nav{
-
-            position: absolute;
-            bottom: 0;
-            z-index: 150;
-            transition: height 0.5s linear ;
-            height: 72px;
-            color: $color-light-grey;
-                p{
-                    margin: 0;
-                        width: auto;
-                        position: unset;
-                        display: block;
-                        font-size: 10px;
-                        line-height: 40px;
-                }
-                i{
-                    padding: 0;
-                
-                }
-                span{
-                    position: unset;
-                }
-                &:hover{
-                    height: 250px;
-                    width: 100%;
-                    p{
-                        color: white;
+                display: inline-block;
+                a{
+                    display: inline-block;
+                    border: none !important;
+                    @include button($color-dark-grey, $color-light-grey, $color-dark-grey,$fs-2, 0 0, $color-dark-grey, $color-light-grey);
+                    i {
+                        padding: 0 $pd-1 0 $pd-0 !important;
+                        &::before{
+                            
+                            font-size: $fs-2*1.2;
+                        }
+                        
                     }
-                } 
+                }
             }
         }
         
     }
+    @media screen and (max-width:767px){
+        top: unset;
+        bottom: 0;
+        transform: unset;
+        display: flex;
+        width: 100%;
+        background: $color-black;
+        
+        .nav-bar{
+            width: 25%;
+            height: 65px;
+            margin: 0 !important;
+            text-align: center;
+            margin: 0 1px !important;
+            
+            .nav-content{
+                position: unset !important;
+                width: 100% !important; 
+                right: unset;
+                line-height: unset;
+                transition: unset !important;
+                height: 65px;
+                i{
+                    padding: $pd-1 0;
+                }
+                span{
+                    display: block;
+                    font-size: $fs-1 *0.8;
+                }
+                &:hover{
+                    width: unset;
+                }
+                
+            }
+            .share-side-nav-resp{
+                position: absolute !important;
+                
+                top: unset;
+                right: unset;
+                bottom: 0;
+                transition: height 0.8s !important;
+                &:hover{
+                    height: 250px;
+                }
+                .share-side-nav-title{
+                    font-size: $fs-1 *0.8;  
+                }
+                .share-side-nav{
+                    display: block;
+                    a{
+                        display: block;
+                        i{
+                            padding: $pd-0 !important;
+                            &::before{
+                                font-size: $fs-2*1.5 !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
+
